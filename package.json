@@ -1,0 +1,56 @@
+{
+  "name": "racehub-client-nodejs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean-build": "rm -rf ./build",
+    "build": "npm run clean-build && tsc && npm run copy-workers",
+    "compile": "npm run clean-build && tsc && npm run copy-workers",
+    "copy-workers": "cp -R ./src/workers ./build/src",
+    "start": "npm run build && node ./build/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "bin": {
+    "pkg": "./build/src/index.js"
+  },
+  "pkg": {
+    "scripts": [],
+    "assets": [
+      "./build/src/workers/fileSync.js",
+      "./build/src/workers/parser.js",
+      "./build/src/workers/recorder.js"
+    ],
+    "targets": [
+      "node14-win-x64"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@racehub-io/f1-telemetry-client": "^0.2.9",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.1.30",
+    "nanoid-dictionary": "^4.3.0",
+    "node-fetch": "^2.6.6",
+    "parquets": "^0.10.10",
+    "typescript": "^4.5.4",
+    "websocket": "^1.0.34",
+    "ws": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/ws": "^8.2.2",
+    "gts": "^3.1.0",
+    "typescript": "^4.0.3"
+  }
+}

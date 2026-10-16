@@ -1,0 +1,10 @@
+.DS_Store
+/build
+/node_modules
+racehub-client-nodejs-linux
+racehub-client-nodejs-macos
+racehub-client-nodejs-arm64
+racehub-client-nodejs-macos-arm64
+racehub-client-nodejs-macos-x64
+racehub-client-nodejs-x64
+*.exe
